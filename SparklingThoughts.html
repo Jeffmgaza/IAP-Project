@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SparklingThoughts</title>
+    <link rel="stylesheet" href="SparklingThoughts.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to SparklingThoughts</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="posts">
+            <article>
+                <h2>Blog Post Title</h2>
+                <p>Content of the blog post goes here.</p>
+            </article>
+            <article>
+                <h2>Another Blog Post</h2>
+                <p>Content of another blog post goes here.</p>
+            </article>
+        </section>
+        <form id="commentForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <textarea id="comment" placeholder="Your Comment" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="commentsSection"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 SparklingThoughts. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const comment = document.getElementById('comment').value;
+            if (name && comment) {
+                const commentsSection = document.getElementById('commentsSection');
+                const newComment = document.createElement('div');
+                newComment.innerHTML = `<strong>${name}</strong>: <p>${comment}</p>`;
+                commentsSection.appendChild(newComment);
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
